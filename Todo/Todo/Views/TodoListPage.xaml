@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Todo.Views.TodoListPage"
+             Title="Lista de Tareas"
+             BackgroundColor="LightGray">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Agregar" Clicked="OnItemAdded">
+            <ToolbarItem.IconImageSource>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="Android, UWP" Value="custom_plus.png" />
+                </OnPlatform>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ListView x:Name="listView"
+              Margin="10"
+              BackgroundColor="WhiteSmoke"
+              ItemSelected="OnListItemSelected">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Margin="10"
+                                 Orientation="Horizontal"
+                                 HorizontalOptions="FillAndExpand">
+                        <Label Text="{Binding Name}"
+                               VerticalTextAlignment="Center"
+                               HorizontalOptions="StartAndExpand"
+                               TextColor="{Binding Priority, Converter={StaticResource PriorityToColorConverter}}"
+                               FontSize="16" />
+                        <Switch IsToggled="{Binding Done}"
+                                HorizontalOptions="End"
+                                WidthRequest="50"
+                                HeightRequest="30"/>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

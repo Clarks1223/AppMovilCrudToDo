@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Todo.App"
+             xmlns:local="clr-namespace:Todo.Converters">
+    
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- Cambios en los colores para utilizar celeste -->
+            <Color x:Key="primaryBlue">#3498DB</Color>
+            <Color x:Key="primaryDarkBlue">#2980B9</Color>
+
+            <!-- Ejemplo de un nuevo recurso: Estilo para los botones -->
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="TextColor" Value="{StaticResource primaryBlue}" />
+                <Setter Property="BackgroundColor" Value="White" />
+            </Style>
+
+            <!-- Ejemplo de un nuevo recurso: Estilo para las etiquetas -->
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource primaryDarkBlue}" />
+                <Setter Property="FontSize" Value="18" />
+            </Style>
+            <local:PriorityToColorConverter x:Key="PriorityToColorConverter" />
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
